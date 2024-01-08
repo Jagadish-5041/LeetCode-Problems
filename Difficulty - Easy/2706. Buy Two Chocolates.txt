@@ -1,0 +1,20 @@
+Problem Link : https://leetcode.com/problems/buy-two-chocolates/description/
+
+Solution in Python : 
+
+class Solution:
+
+    def buyChoco(self , prices_list : List[int] , money : int) -> int:
+
+        first_minimum = float('inf')
+
+        second_minimum = float('inf')
+
+        for current_price in prices_list:
+            if(first_minimum > current_price):
+                second_minimum = first_minimum
+                first_minimum = current_price
+            elif(second_minimum > current_price):
+                second_minimum = current_price
+        
+        return (money - (first_minimum + second_minimum)) if((first_minimum + second_minimum) <= money) else (money)
