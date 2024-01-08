@@ -1,0 +1,21 @@
+Problem Link : https://leetcode.com/problems/ugly-number/description/
+
+Solution in Python :
+
+class Solution:
+
+    def isUgly(self , N : int) -> bool:
+
+        prime_factors_list = [2 , 3 , 5]
+
+        prime_factors_list_index = 0
+
+        while((N) and (prime_factors_list_index < 3)):
+
+            if((N % prime_factors_list[prime_factors_list_index]) == 0):
+                N //= prime_factors_list[prime_factors_list_index]
+                continue
+            
+            prime_factors_list_index += 1
+        
+        return (N == 1)

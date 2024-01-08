@@ -1,0 +1,24 @@
+Problem Link : https://leetcode.com/problems/transpose-matrix/description/
+
+Solution in Python :
+
+class Solution:
+
+    def transpose(self , matrix : List[List[int]]) -> List[List[int]]:
+
+        transposed_matrix = []
+
+        R = len(matrix)
+
+        C = len(matrix[0])
+
+        for j in range(0 , C):
+
+            column_values_list = []
+
+            for i in range(0 , R):
+                column_values_list.append(matrix[i][j])
+            
+            transposed_matrix.append(column_values_list)
+        
+        return transposed_matrix

@@ -1,0 +1,15 @@
+Problem Link : https://leetcode.com/problems/reverse-string/description/
+
+Solution in C :
+
+void reverseString(char *string , int N){
+
+    for(int i=0 ; (i < (N / 2)) ; (i++)){
+
+        char temp = string[i];
+
+        string[i] = string[(N - i - 1)];
+        
+        string[(N - i - 1)] = temp;
+    }
+}

@@ -1,0 +1,14 @@
+Problem Link : https://leetcode.com/problems/single-number/description/
+
+Solution in Python :
+
+class Solution:
+
+    def singleNumber(self , numbers_list : List[int]) -> int:
+
+        XOR_sum = 0
+
+        for i in numbers_list:
+            XOR_sum ^= i
+        
+        return XOR_sum

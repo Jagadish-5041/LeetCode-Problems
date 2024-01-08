@@ -1,0 +1,27 @@
+Problem Link : https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/description/
+
+Solution in Python : 
+
+class Solution:
+    
+    def alternate_pattern_function(self , first_value , second_value , N , binary_string):
+
+        changes_count = 0
+
+        for i in range(0 , N):
+            if((i & 1) and (binary_string[i] != first_value)):
+                changes_count += 1
+            elif(((i & 1) == 0) and (binary_string[i] != second_value)):
+                changes_count += 1
+        
+        return changes_count
+    
+    def minOperations(self , binary_string : str) -> int:
+
+        N = len(binary_string)
+
+        changes_count_1 = self.alternate_pattern_function('0' , '1' , N , binary_string)
+
+        changes_count_2 = self.alternate_pattern_function('1' , '0' , N , binary_string)
+
+        return min(changes_count_1 , changes_count_2)

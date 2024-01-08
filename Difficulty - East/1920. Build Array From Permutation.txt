@@ -1,0 +1,9 @@
+Problem Link : https://leetcode.com/problems/build-array-from-permutation/description/
+
+Solution in Python : 
+
+class Solution:
+
+    def buildArray(self , elements_list : List[int]) -> List[int]:
+
+        return [elements_list[elements_list[i]] for i in range(0 , len(elements_list))]

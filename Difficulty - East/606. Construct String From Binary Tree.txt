@@ -1,0 +1,42 @@
+Problem Link : https://leetcode.com/problems/construct-string-from-binary-tree/description/
+
+Solution in Python :
+
+# Definition for a binary tree node.
+#
+# class TreeNode:
+#
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+
+    def __init__(self):
+        self.answer_string = ''
+
+    def depth_first_search_function(self , root):
+
+        if(not root):
+            return
+        
+        self.answer_string += str(root.val)
+
+        # Since empty parenthesis pair is required for the left child if there is presence of right child , Check for both Children
+
+        if((root.left) or (root.right)):
+            self.answer_string += '('
+            self.depth_first_search_function(root.left)
+            self.answer_string += ')'
+        
+        if(root.right):
+            self.answer_string += '('
+            self.depth_first_search_function(root.right)
+            self.answer_string += ')'
+
+    def tree2str(self , root : Optional[TreeNode]) -> str:
+
+        self.depth_first_search_function(root)
+
+        return (self.answer_string)

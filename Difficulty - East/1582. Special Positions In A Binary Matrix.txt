@@ -1,0 +1,32 @@
+Problem Link : https://leetcode.com/problems/special-positions-in-a-binary-matrix/description/
+
+Solution in Python :
+
+class Solution:
+
+    def get_row_sum(self , row , matrix):
+        return sum(matrix[row])
+
+    def get_column_sum(self , R , column , matrix):
+        
+        sum_value = 0
+
+        for i in range(0 , R):
+            sum_value += matrix[i][column]
+        
+        return sum_value
+
+    def numSpecial(self , matrix : List[List[int]]) -> int:
+
+        R = len(matrix)
+
+        C = len(matrix[0])
+
+        count_of_special_positions = 0
+
+        for i in range(0 , R):
+            for j in range(0 , C):
+                if((matrix[i][j]) and (self.get_row_sum(i , matrix) == 1) and (self.get_column_sum(R , j , matrix) == 1)):
+                    count_of_special_positions += 1
+        
+        return count_of_special_positions

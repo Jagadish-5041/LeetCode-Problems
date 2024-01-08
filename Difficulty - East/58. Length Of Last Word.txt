@@ -1,0 +1,21 @@
+Problem Link : https://leetcode.com/problems/length-of-last-word/description/
+
+Solution in C :
+
+#include<string.h>
+
+int lengthOfLastWord(char *string) {
+
+    int last_word_length = 0;
+
+    char *string_tokenizer = strtok(string , " ");
+
+    while(string_tokenizer != NULL){
+
+        last_word_length = strlen(string_tokenizer);
+
+        string_tokenizer = strtok(NULL , " ");
+    }
+
+    return last_word_length;
+}

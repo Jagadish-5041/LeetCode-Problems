@@ -1,0 +1,31 @@
+Problem Link : https://leetcode.com/problems/squares-of-a-sorted-array/description/
+
+Solution in Python :
+
+class Solution:
+
+    def sortedSquares(self , elements_list : List[int]) -> List[int]:
+
+        N = len(elements_list)
+
+        squares_list = [0 for i in range(0 , N)]
+
+        left_pointer = 0
+
+        right_pointer = (N - 1)
+
+        for index in range((N - 1) , -1 , -1):
+
+            if(abs(elements_list[left_pointer]) > (abs(elements_list[right_pointer]))):
+
+                squares_list[index] = (elements_list[left_pointer] ** 2)
+
+                left_pointer += 1
+
+            else:
+
+                squares_list[index] = (elements_list[right_pointer] ** 2)
+
+                right_pointer -= 1
+        
+        return squares_list

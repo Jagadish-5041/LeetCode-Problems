@@ -1,0 +1,25 @@
+Problem Link : https://leetcode.com/problems/two-sum/description/
+
+
+Solution in Java :-
+
+class Solution {
+
+    public int[] twoSum(int[] numbers_array , int target) {
+
+        HashMap<Integer , Integer> map = new HashMap<>();
+
+        for(int i=0 , numbers_array_length = numbers_array.length ; (i < numbers_array_length) ; i++){
+            
+            int difference = (target - numbers_array[i]);
+
+            if(!(map.containsKey(difference))){
+                map.put(numbers_array[i] , i);
+            }else{
+                return (new int[] {i , map.get(difference)});
+            }
+        }
+
+        return (new int[2]);
+    }
+}

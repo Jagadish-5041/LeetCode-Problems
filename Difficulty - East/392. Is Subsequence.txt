@@ -1,0 +1,29 @@
+Problem Link : https://leetcode.com/problems/is-subsequence/description/
+
+Solution in Python :
+
+class Solution:
+
+    def isSubsequence(self , subsequence_string : str , original_string : str) -> bool:
+
+        if(not subsequence_string):
+            return True
+        
+        subsequence_string_index = 0
+
+        subsequence_string_length = len(subsequence_string)
+
+        original_string_length = len(original_string)
+
+        if(subsequence_string_length > original_string_length):
+            return False
+        
+        for original_string_index in range(0 , original_string_length):
+            
+            if(subsequence_string[subsequence_string_index] == original_string[original_string_index]):
+                subsequence_string_index += 1
+            
+            if(subsequence_string_index == subsequence_string_length):
+                return True
+        
+        return False

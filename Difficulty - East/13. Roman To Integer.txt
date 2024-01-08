@@ -1,0 +1,44 @@
+Problem Link : https://leetcode.com/problems/roman-to-integer/description/
+
+Solution in Python3 : 
+
+class Solution:
+
+    def romanToInt(self , roman_string : str) -> int:
+
+        basic_roman_letters_value_dictionary = {
+                                                # Values in List are
+                                                # [1 , 5 , 10 , 50 , 100 , 500 , 1000] - Values of Basic Roman Letters
+                                                'I' : 1 , 
+                                                'V' : 5 ,
+                                                'X' : 10 ,
+                                                'L' : 50 ,
+                                                'C' : 100 ,
+                                                'D' : 500 ,
+                                                'M' : 1000 ,
+                                                # '$' - Dummy Character to be appended at the end for calculation purpose
+                                                '$' : 0
+                                            }
+        
+        roman_string += '$'
+
+        index = 0
+
+        N = len(roman_string)
+
+        integer_value = 0
+
+        while(index < (N - 1)):
+
+            i_th_index_value = basic_roman_letters_value_dictionary[roman_string[index]]
+
+            i_plus_1_th_index_value = basic_roman_letters_value_dictionary[roman_string[(index + 1)]]
+
+            if(i_th_index_value >= i_plus_1_th_index_value):
+                integer_value += i_th_index_value
+                index += 1
+            else:
+                integer_value += (i_plus_1_th_index_value - i_th_index_value)
+                index += 2
+        
+        return integer_value

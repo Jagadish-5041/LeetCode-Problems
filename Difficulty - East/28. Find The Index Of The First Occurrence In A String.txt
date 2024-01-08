@@ -1,0 +1,23 @@
+Problem Link : https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
+
+Solution in C :
+
+int strStr(char *haystack_string , char *needle_string) {
+    
+    int haystack_string_length = strlen(haystack_string);
+
+    int needle_string_length = strlen(needle_string);
+
+    char *substring = (char *) malloc((needle_string_length + 1) * sizeof(char));
+
+    for(int i=0 ; (i <= (haystack_string_length - needle_string_length)) ; (i++)){
+
+        sprintf(substring , "%.*s" , needle_string_length , &haystack_string[i]);
+
+        if(strcmp(substring , needle_string) == 0){
+            return i;
+        }
+    }
+
+    return -1;
+}

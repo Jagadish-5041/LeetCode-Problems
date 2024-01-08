@@ -1,0 +1,19 @@
+Problem Link : https://leetcode.com/problems/running-sum-of-1d-array/description/
+
+Solution in Python :
+
+class Solution:
+    
+    def runningSum(self , numbers_list : List[int]) -> List[int]:
+
+        prefix_sum = 0
+
+        prefix_sum_list = []
+
+        for number in numbers_list:
+
+            prefix_sum += number
+
+            prefix_sum_list.append(prefix_sum)
+        
+        return prefix_sum_list

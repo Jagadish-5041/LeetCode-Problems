@@ -1,0 +1,31 @@
+Problem Link : https://leetcode.com/problems/backspace-string-compare/description/
+
+Solution in Python :
+
+class Solution:
+
+    def modify_string_function(self , characters_list):
+
+        N = len(characters_list)
+
+        hash_count = 0
+
+        for index in range((N - 1) , -1 , -1):
+
+            if(characters_list[index] == '#'):
+                hash_count += 1
+                continue
+            
+            if(hash_count):
+                characters_list[index] = '$'
+                hash_count -= 1
+        
+        return (''.join([character for character in characters_list if((character != '#') and (character != '$'))]))
+
+    def backspaceCompare(self , string_S : str , string_T : str) -> bool:
+        
+        string_S = self.modify_string_function(list(string_S))
+
+        string_T = self.modify_string_function(list(string_T))
+
+        return (string_S == string_T)

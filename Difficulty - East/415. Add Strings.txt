@@ -1,0 +1,58 @@
+Problem Link : https://leetcode.com/problems/add-strings/description/
+
+Solution in C :
+
+#include<string.h>
+
+int max(int first_value , int second_value){
+    return ((first_value >= second_value) ? (first_value) : (second_value));
+}
+
+char* addStrings(char *number_string_1 , char *number_string_2){
+
+    int number_string_1_length = strlen(number_string_1);
+    
+    int number_string_2_length = strlen(number_string_2);
+
+    int result_number_string_length = max(number_string_1_length , number_string_2_length);
+
+    char *result_number_string = (char*) malloc((result_number_string_length + 1) * sizeof(char));
+    
+    result_number_string[result_number_string_length] = '\0';
+
+    int carry_digit = 0;
+
+    int number_string_1_index = (number_string_1_length - 1);
+
+    int number_string_2_index = (number_string_2_length - 1);
+
+    int result_number_string_index = (result_number_string_length - 1);
+
+    while((number_string_1_index >= 0) || (number_string_2_index >= 0)){
+
+        int digit_1 = (number_string_1_index >= 0) ? (number_string_1[(number_string_1_index--)] - '0') : (0);
+        
+        int digit_2 = (number_string_2_index >= 0) ? (number_string_2[(number_string_2_index--)] - '0') : (0);
+
+        int sum_of_digits = (digit_1 + digit_2 + carry_digit);
+
+        carry_digit = (sum_of_digits / 10);
+        
+        result_number_string[(result_number_string_index--)] = ((sum_of_digits % 10) + '0');
+    }
+
+    if(carry_digit){
+
+        char *new_result_number_string = (char*) malloc((result_number_string_length + 2) * sizeof(char));
+
+        new_result_number_string[0] = (carry_digit + '0');
+
+        strcpy((&new_result_number_string[1]) , result_number_string);
+
+        free(result_number_string);
+
+        return new_result_number_string;
+    }
+
+    return result_number_string;
+}

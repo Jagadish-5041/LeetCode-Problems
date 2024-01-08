@@ -1,0 +1,25 @@
+Problem Link : https://leetcode.com/problems/palindrome-number/description/
+
+Solution in C :
+
+#include<stdbool.h>
+
+bool isPalindrome(int number) {
+    
+    if((number < 0) || ((number > 0) && ((number % 10) == 0))){
+        return false;
+    }
+
+    int half_reversed_number = 0;
+
+    while(number > half_reversed_number){
+
+        int unit_digit = (number % 10);
+
+        half_reversed_number = ((half_reversed_number * 10) + unit_digit);
+
+        number /= 10;
+    }
+
+    return ((number == half_reversed_number) || (number == (half_reversed_number / 10)));
+}

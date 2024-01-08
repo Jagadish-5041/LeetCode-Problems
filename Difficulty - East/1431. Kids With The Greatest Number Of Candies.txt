@@ -1,0 +1,11 @@
+Problem Link : https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/description/
+
+Solution in Python :
+
+class Solution:
+
+    def kidsWithCandies(self , candies_list : List[int] , extra_candies : int) -> List[bool]:
+
+        maximum_value = max(candies_list)
+
+        return [((i + extra_candies) >= maximum_value) for i in candies_list]
