@@ -1,9 +1,0 @@
-Problem Link :  https://leetcode.com/problems/repeated-substring-pattern/description/
-
-Solution in Python :
-
-class Solution:
-
-    def repeatedSubstringPattern(self , string : str) -> bool:
-
-        return (string in (string[1 : ] + string[ : -1]))

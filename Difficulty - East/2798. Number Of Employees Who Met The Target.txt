@@ -1,9 +1,0 @@
-Problem Link : https://leetcode.com/problems/number-of-employees-who-met-the-target/description/
-
-Solution in Python : 
-
-class Solution:
-
-    def numberOfEmployeesWhoMetTarget(self , hours_list : List[int] , target : int) -> int:
-
-        return len([hour for hour in hours_list if(hour >= target)])

@@ -1,9 +1,0 @@
-Problem Link : https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/description/
-
-Solution in Python : 
-
-class Solution:
-
-    def arrayStringsAreEqual(self , list_1 : List[str] , list_2 : List[str]) -> bool:
-
-        return ((''.join(list_1)) == (''.join(list_2)))

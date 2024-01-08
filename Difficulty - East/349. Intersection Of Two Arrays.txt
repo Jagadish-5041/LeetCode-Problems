@@ -1,9 +1,0 @@
-Problem Link : https://leetcode.com/problems/intersection-of-two-arrays/description/
-
-Solution in Python :
-
-class Solution:
-
-    def intersection(self , list_1 : List[int] , list_2 : List[int]) -> List[int]:
-
-        return (list(set(list_1) & set(list_2)))
