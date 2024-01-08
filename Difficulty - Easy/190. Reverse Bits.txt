@@ -1,0 +1,24 @@
+Problem Link : https://leetcode.com/problems/reverse-bits/description/
+
+Solution in Java :
+
+public class Solution {
+
+    // you need treat number as an unsigned value
+    
+    public int reverseBits(int number) {
+        
+        int reversed_number = 0;
+
+        for(int i=1 ; (i <= 32) ; i++){
+            
+            reversed_number <<= 1;
+
+            reversed_number |= (number & 1);
+
+            number >>= 1;
+        }
+
+        return reversed_number;
+    }
+}

@@ -1,0 +1,16 @@
+Problem Link : https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+
+Solution in Python3 :
+
+class Solution:
+
+    def removeDuplicates(self , numbers_list : List[int]) -> int:
+        
+        unique_elements_list = list(dict.fromkeys(numbers_list))
+
+        N = len(unique_elements_list)
+
+        for i in range(0 , N):
+            numbers_list[i] = unique_elements_list[i]
+        
+        return N

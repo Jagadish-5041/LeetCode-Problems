@@ -1,0 +1,24 @@
+Problem Link : https://leetcode.com/problems/fibonacci-number/description/
+
+Solution in Python : 
+
+class Solution:
+
+    def fib(self , N : int) -> int:
+
+        if(N <= 1):
+            return N
+
+        value_1 = 0
+
+        value_2 = 1
+
+        for i in range(2 , (N + 1)):
+            
+            value_3 = (value_1 + value_2)
+
+            value_1 = value_2
+
+            value_2 = value_3
+        
+        return value_2

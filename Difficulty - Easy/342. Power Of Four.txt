@@ -1,0 +1,19 @@
+Problem Link : https://leetcode.com/problems/power-of-four/description/
+
+Solution in Python :
+
+class Solution:
+
+    def isPowerOfFour(self , number : int) -> bool:
+
+        # (number > 0) is the condition to check whether the given number is postive or not and it should be a positive number
+
+        # ((number & (number - 1)) == 0) is the condition to evaluate whether it's a power of 2 or not
+
+        # ((number & 0x55555555) != 0) is the condition to evaluate whether it's a power of 4 or not
+
+        # 0x55555555 in binary it is represented as 01010101010101010101010101010101
+
+        # where the 1's bits are only in the place which are the powers of 4
+
+        return ((number > 0) and ((number & (number - 1)) == 0) and ((number & 0x55555555) != 0))

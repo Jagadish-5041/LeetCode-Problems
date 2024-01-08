@@ -1,0 +1,16 @@
+Problem Link : https://leetcode.com/problems/search-insert-position/description/
+
+Solution in C:
+
+int searchInsert(int *array , int N , int target){
+
+    for(int i=0 ; (i < (N - 1)) ; (i++)){
+        
+        if((array[i] < target) && (target <= array[(i + 1)])){
+
+            return (i + 1);
+        }
+    }
+
+    return ((target <= array[0]) ? (0) : (N));
+}

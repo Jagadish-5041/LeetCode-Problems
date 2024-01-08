@@ -1,0 +1,13 @@
+Problem Link : https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/description/
+
+Solution in Python : 
+
+class Solution:
+
+    def countOdds(self , starting_range : int , ending_range : int) -> int:
+
+        odd_numbers_count_from_0_till_starting_range = (((starting_range - 1) // 2) + ((starting_range - 1) % 2))
+
+        odd_numbers_count_from_0_till_ending_range = ((ending_range // 2) + (ending_range % 2))
+
+        return (odd_numbers_count_from_0_till_ending_range - odd_numbers_count_from_0_till_starting_range)

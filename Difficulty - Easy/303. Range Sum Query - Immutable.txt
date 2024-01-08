@@ -1,0 +1,20 @@
+Problem Link : https://leetcode.com/problems/range-sum-query-immutable/description/
+
+Solution in Python :
+
+class NumArray:
+
+    def __init__(self , parameter_numbers_list : List[int]):
+        
+        for i in range(1 , len(parameter_numbers_list)):
+            parameter_numbers_list[i] = (parameter_numbers_list[(i - 1)] + parameter_numbers_list[i])
+        
+        self.numbers_list = parameter_numbers_list
+
+    def sumRange(self , starting_index : int , ending_index : int) -> int:
+        
+        return (self.numbers_list[ending_index] - self.numbers_list[(starting_index - 1)]) if(starting_index != 0) else (self.numbers_list[ending_index])
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# param_1 = obj.sumRange(left,right)

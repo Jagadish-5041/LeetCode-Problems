@@ -1,0 +1,23 @@
+Problem Link : https://leetcode.com/problems/design-hashmap/description/
+
+Solution in Python :
+
+class MyHashMap:
+
+    def __init__(self):
+        self.hashmap_values = [''] * 1000008
+
+    def put(self , key : int , value : int) -> None:
+        self.hashmap_values[key] = value
+
+    def get(self , key : int) -> int:
+        return ((self.hashmap_values[key]) if(self.hashmap_values[key] != '') else (-1))
+        
+    def remove(self , key : int) -> None:
+        self.hashmap_values[key] = ''
+
+# Your MyHashMap object will be instantiated and called as such:
+# obj = MyHashMap()
+# obj.put(key,value)
+# param_2 = obj.get(key)
+# obj.remove(key)

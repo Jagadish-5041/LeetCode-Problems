@@ -1,0 +1,23 @@
+Problem Link : https://leetcode.com/problems/pascals-triangle-ii/description/
+
+Solution in Python :
+
+class Solution:
+
+    def generate_rows_function(self , N):
+
+        rows_list = [1]
+
+        value = 1
+
+        for j in range(1 , N):
+
+            value = ((value * (N - j)) // j)
+
+            rows_list.append(value)
+        
+        return rows_list
+    
+    def getRow(self , row_index : int) -> List[int] :
+
+        return (self.generate_rows_function((row_index + 1)))

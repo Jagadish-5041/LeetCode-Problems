@@ -1,0 +1,39 @@
+Problem Link : https://leetcode.com/problems/image-smoother/description/
+
+Solution in Python :
+
+class Solution:
+
+    def pixels_average_function(self , current_i , current_j , R , C , pixels_matrix):
+
+        total_pixels_sum = pixels_matrix[current_i][current_j]
+
+        cells_count = 1
+
+        eight_directions = [[-1 , 0] , [1 , 0] , [0 , -1] , [0 , 1] , [-1 , - 1] , [1 , -1] , [-1 , 1] , [1 , 1]]
+
+        for new_i , new_j in eight_directions:
+
+            next_i = (current_i + new_i)
+
+            next_j = (current_j + new_j)
+
+            if((0 <= next_i < R) and (0 <= next_j < C)):
+                total_pixels_sum += pixels_matrix[next_i][next_j]
+                cells_count += 1
+        
+        return (total_pixels_sum // cells_count)
+
+    def imageSmoother(self , pixels_matrix : List[List[int]]) -> List[List[int]]:
+
+        R = len(pixels_matrix)
+
+        C = len(pixels_matrix[0])
+
+        modified_pixels_matrix = [[0 for i in range(0 , C)] for i in range(0 , R)]
+
+        for i in range(0 , R):
+            for j in range(0 , C):
+                modified_pixels_matrix[i][j] = self.pixels_average_function(i , j , R , C , pixels_matrix)
+        
+        return modified_pixels_matrix

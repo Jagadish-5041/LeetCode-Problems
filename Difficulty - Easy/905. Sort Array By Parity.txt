@@ -1,0 +1,19 @@
+Problem Link : https://leetcode.com/problems/sort-array-by-parity/description/
+
+Solution in Python :
+
+class Solution:
+
+    def sortArrayByParity(self , numbers_list : List[int]) -> List[int]:
+
+        first_pointer = 0
+
+        for second_pointer in range(0 , len(numbers_list)):
+
+            if((numbers_list[second_pointer] & 1) == 0):
+
+                numbers_list[first_pointer] , numbers_list[second_pointer] = numbers_list[second_pointer] , numbers_list[first_pointer]
+
+                first_pointer += 1
+        
+        return numbers_list

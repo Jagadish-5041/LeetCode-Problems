@@ -1,0 +1,23 @@
+Problem Link : https://leetcode.com/problems/number-of-good-pairs/description/
+
+Solution in Python :
+
+class Solution:
+
+    def numIdenticalPairs(self , numbers_list : List[int]) -> int:
+
+        frequency_dictionary = {}
+
+        for i in numbers_list:
+            frequency_dictionary[i] = (frequency_dictionary.get(i , 0) + 1)
+        
+        count_of_good_pairs = 0
+
+        for i in frequency_dictionary.keys():
+            
+            frequency = frequency_dictionary[i]
+            
+            if(frequency >= 2):
+                count_of_good_pairs += ((frequency * (frequency - 1)) // 2)
+
+        return count_of_good_pairs

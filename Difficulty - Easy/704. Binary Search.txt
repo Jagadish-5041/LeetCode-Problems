@@ -1,0 +1,25 @@
+Problem Link : https://leetcode.com/problems/binary-search/description/
+
+Solution in Python :
+
+class Solution:
+
+    def search(self , numbers_list : List[int] , target_value : int) -> int:
+
+        left_pointer = 0
+
+        right_pointer = (len(numbers_list) - 1)
+
+        while(left_pointer <= right_pointer):
+
+            middle_pointer = ((left_pointer + right_pointer) // 2)
+
+            if(numbers_list[middle_pointer] == target_value):
+                return middle_pointer
+            
+            if(numbers_list[middle_pointer] <= target_value):
+                left_pointer = (middle_pointer + 1)
+            elif(target_value < numbers_list[middle_pointer]):
+                right_pointer = (middle_pointer - 1)
+        
+        return -1

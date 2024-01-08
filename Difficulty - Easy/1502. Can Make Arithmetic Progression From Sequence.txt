@@ -1,0 +1,21 @@
+Problem Link : https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence/description/
+
+Solution in Python :
+
+class Solution:
+    
+    def canMakeArithmeticProgression(self , numbers_list : List[int]) -> bool:
+
+        numbers_list.sort()
+
+        common_difference = abs(numbers_list[0] - numbers_list[1])
+
+        for i in range(0 , (len(numbers_list) - 1)):
+
+            current_difference = abs(numbers_list[i] - numbers_list[(i + 1)])
+            
+            if(current_difference != common_difference):
+
+                return False
+        
+        return True

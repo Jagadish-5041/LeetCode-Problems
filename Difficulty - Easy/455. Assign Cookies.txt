@@ -1,0 +1,33 @@
+Problem Link : https://leetcode.com/problems/assign-cookies/description/
+
+Solution in Python :
+
+class Solution:
+
+    def findContentChildren(self , greed_factors_list : List[int] , size_of_cookies_list : List[int]) -> int:
+
+        count = 0
+
+        greed_factors_list.sort()
+
+        size_of_cookies_list.sort()
+
+        greed_factors_list_index = (len(greed_factors_list) - 1)
+
+        size_of_cookies_list_index = (len(size_of_cookies_list) - 1)
+
+        while((greed_factors_list_index >= 0) and (size_of_cookies_list_index >= 0)):
+
+            if(greed_factors_list[greed_factors_list_index] <= size_of_cookies_list[size_of_cookies_list_index]):
+
+                count += 1
+
+                greed_factors_list_index -= 1
+
+                size_of_cookies_list_index -= 1
+            
+            else:
+
+                greed_factors_list_index -= 1
+        
+        return count

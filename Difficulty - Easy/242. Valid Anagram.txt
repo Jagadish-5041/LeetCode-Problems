@@ -1,0 +1,26 @@
+Problem Link : https://leetcode.com/problems/valid-anagram/description/
+
+Solution in Python : 
+
+class Solution(object):
+    
+    def isAnagram(self , string_a , string_b):
+
+        if(len(string_a) != len(string_b)):
+            return False
+
+        dictionary_1 = {}
+
+        dictionary_2 = {}
+
+        for i in range(0 , len(string_a)):
+
+            dictionary_1[string_a[i]] = (dictionary_1.get(string_a[i] , 0) + 1)
+
+            dictionary_2[string_b[i]] = (dictionary_2.get(string_b[i] , 0) + 1)
+        
+        for key in dictionary_1:
+            if(dictionary_1[key] != dictionary_2.get(key , -999)):
+                return False
+        
+        return True

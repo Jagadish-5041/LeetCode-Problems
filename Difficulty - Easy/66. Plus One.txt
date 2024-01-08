@@ -1,0 +1,19 @@
+Problem Link : https://leetcode.com/problems/plus-one/description/
+
+Solution in Python3 :
+
+class Solution:
+
+    def plusOne(self , digits_list : List[int]) -> List[int]:
+
+        for i in range((len(digits_list) - 1) , -1 , -1):
+            
+            if(digits_list[i] <= 8):
+
+                digits_list[i] += 1
+                
+                return digits_list
+            
+            digits_list[i] = 0
+        
+        return ([1] + digits_list)

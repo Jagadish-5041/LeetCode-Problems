@@ -1,0 +1,20 @@
+Problem Link : https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/description/
+
+Solution in Python :
+
+class Solution:
+
+    def findSpecialInteger(self , elements_list : List[int]) -> int:
+
+        _25_percent = (len(elements_list) / 4)
+
+        frequency = {}
+
+        for number in elements_list:
+            frequency[number] = (frequency.get(number , 0) + 1)
+        
+        for key in frequency:
+            if(frequency[key] > _25_percent):
+                return key
+        
+        return -999

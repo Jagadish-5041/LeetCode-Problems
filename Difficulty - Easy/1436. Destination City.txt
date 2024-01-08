@@ -1,0 +1,32 @@
+Problem Link : https://leetcode.com/problems/destination-city/description/
+
+Solution in Python :
+
+class Solution:
+
+    def __init__(self):
+        self.destination_city_without_any_outgoing_path = ''
+
+    def depth_first_search_function(self , current_node , adjacency_list):
+
+        if(current_node not in adjacency_list):
+            self.destination_city_without_any_outgoing_path = current_node
+            return
+        
+        for neighbour_node in adjacency_list[current_node]:
+            self.depth_first_search_function(neighbour_node , adjacency_list)
+
+    def destCity(self , paths_list : List[List[str]]) -> str:
+
+        adjacency_list = {}
+
+        for source , destination in paths_list:
+            if(source in adjacency_list):
+                adjacency_list[source].append(destination)
+            else:
+                adjacency_list[source] = [destination]
+        
+        for current_node in adjacency_list:
+            self.depth_first_search_function(current_node , adjacency_list)
+
+        return self.destination_city_without_any_outgoing_path
