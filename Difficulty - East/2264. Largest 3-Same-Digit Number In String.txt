@@ -1,0 +1,15 @@
+Problem Link : https://leetcode.com/problems/largest-3-same-digit-number-in-string/description/
+
+Solution in Python : 
+
+class Solution:
+
+    def largestGoodInteger(self , number_string : str) -> str:
+
+        largest_good_integer_string = ''
+
+        for i in range(0 , (len(number_string) - 3 + 1)):
+            if(number_string[i] == number_string[(i + 1)] == number_string[(i + 2)]):
+                largest_good_integer_string = max(largest_good_integer_string , number_string[i : (i + 3)])
+        
+        return largest_good_integer_string
