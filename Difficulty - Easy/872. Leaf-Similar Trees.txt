@@ -1,0 +1,36 @@
+Problem Link : https://leetcode.com/problems/leaf-similar-trees/description/
+
+Solution in Python : 
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    
+    def depth_first_search(self , root_node , leaf_nodes_list):
+
+        if(not root_node):
+            return
+        
+        self.depth_first_search(root_node.left , leaf_nodes_list)
+
+        self.depth_first_search(root_node.right , leaf_nodes_list)
+        
+        if((not root_node.left) and (not root_node.right)):
+            leaf_nodes_list.append(root_node.val)
+
+    def leafSimilar(self , root_node_1 : Optional[TreeNode] , root_node_2: Optional[TreeNode]) -> bool:
+
+        root_node_1_s_leaf_nodes_list = []
+
+        root_node_2_s_leaf_nodes_list = []
+
+        self.depth_first_search(root_node_1 , root_node_1_s_leaf_nodes_list)
+
+        self.depth_first_search(root_node_2 , root_node_2_s_leaf_nodes_list)
+
+        return (root_node_1_s_leaf_nodes_list == root_node_2_s_leaf_nodes_list)
