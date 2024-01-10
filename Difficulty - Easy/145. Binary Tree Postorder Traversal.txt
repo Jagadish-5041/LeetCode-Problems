@@ -1,0 +1,31 @@
+Problem Link : https://leetcode.com/problems/binary-tree-postorder-traversal/description/
+
+Solution in Python : 
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+
+    def depth_first_search(self , root_node , nodes_list):
+
+        if(not root_node):
+            return
+        
+        self.depth_first_search(root_node.left , nodes_list)
+
+        self.depth_first_search(root_node.right , nodes_list)
+
+        nodes_list.append(root_node.val)
+
+    def postorderTraversal(self , root_node : Optional[TreeNode]) -> List[int]:
+
+        nodes_list = []
+
+        self.depth_first_search(root_node , nodes_list)
+
+        return nodes_list
