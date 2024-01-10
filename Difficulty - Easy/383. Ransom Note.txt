@@ -1,0 +1,26 @@
+Problem Link : https://leetcode.com/problems/ransom-note/description/
+
+Solution in Python 
+
+class Solution:
+
+    def frequency_function(self , string):
+
+        frequency = {}
+
+        for character in string:
+            frequency[character] = (frequency.get(character , 0) + 1)
+        
+        return frequency
+
+    def canConstruct(self , ransom_note_string : str , magazine_string : str) -> bool:
+
+        ransom_note_frequency = self.frequency_function(ransom_note_string)
+
+        magazine_frequency = self.frequency_function(magazine_string)
+
+        for character in ransom_note_string:
+            if((character not in magazine_frequency) or (ransom_note_frequency[character] > magazine_frequency.get(character , 0))):
+                return False
+        
+        return True
