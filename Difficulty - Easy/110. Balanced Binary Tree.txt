@@ -1,0 +1,42 @@
+Problem Link : https://leetcode.com/problems/balanced-binary-tree/description/
+
+Solution in Python : 
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+
+    def depth_first_search(self , root_node):
+
+        if(not root_node):
+            return 0
+
+        current_height = 1
+
+        left_subtree_height = self.depth_first_search(root_node.left)
+
+        if(left_subtree_height == -999):
+            return -999
+
+        right_subtree_height = self.depth_first_search(root_node.right)
+
+        if(right_subtree_height == -999):
+            return -999
+        
+        absolute_difference = abs(left_subtree_height - right_subtree_height)
+
+        if(absolute_difference > 1):
+            return -999
+
+        maximum_subtree_height = max(left_subtree_height , right_subtree_height)
+
+        return (current_height + maximum_subtree_height)
+
+    def isBalanced(self , root_node : Optional[TreeNode]) -> bool:
+
+        return (self.depth_first_search(root_node) != -999)
