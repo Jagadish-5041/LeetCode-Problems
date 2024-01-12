@@ -1,0 +1,27 @@
+Problem Link : https://leetcode.com/problems/determine-if-string-halves-are-alike/description/
+
+Solution in Python : 
+
+class Solution:
+
+    def is_vowel(self , alphabet):
+
+        return (alphabet in 'aeiouAEIOU')
+
+    def vowels_count_function(self , starting_index , ending_index , string):
+
+        count = 0
+
+        for i in range(starting_index , ending_index):
+            
+            if(self.is_vowel(string[i])):
+
+                count += 1
+        
+        return count
+
+    def halvesAreAlike(self , string : str) -> bool:
+
+        N = len(string)
+
+        return (self.vowels_count_function(0 , (N // 2) , string) == self.vowels_count_function((N // 2) , N , string))
