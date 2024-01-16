@@ -1,0 +1,25 @@
+Problem Link : https://leetcode.com/problems/find-the-town-judge/description/
+
+Solution in Python : 
+
+class Solution:
+
+    def findJudge(self , N : int , edges_list : List[List[int]]) -> int:
+
+        indegree = {node : 0 for node in range(1 , (N + 1))}
+
+        outdegree = {node : 0 for node in range(1 , (N + 1))}
+
+        for node_1 , node_2 in edges_list:
+            
+            outdegree[node_1] += 1
+            
+            indegree[node_2] += 1
+        
+        for node in range(1 , (N + 1)):
+            
+            if((indegree[node] == (N - 1)) and (outdegree[node] == 0)):
+                
+                return node
+        
+        return -1
