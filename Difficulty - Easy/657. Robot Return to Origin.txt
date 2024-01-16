@@ -1,0 +1,27 @@
+Problem Link : https://leetcode.com/problems/robot-return-to-origin/description/
+
+Solution in Python :
+
+class Solution:
+
+    def judgeCircle(self , moves_string : str) -> bool:
+
+        current_i = 0
+
+        current_j = 0
+
+        directions_mapping = {'U' : [-1 , 0] , 'D' : [1 , 0] , 'L' : [0 , -1] , 'R' :[0 , 1]}
+
+        for move in moves_string:
+
+            next_i , next_j = directions_mapping[move]
+
+            new_i = (current_i + next_i)
+
+            new_j = (current_j + next_j)
+
+            current_i = new_i
+
+            current_j = new_j
+        
+        return ((current_i == 0) and (current_j == 0))
